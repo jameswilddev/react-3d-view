@@ -9,7 +9,5 @@ export type AttributeValue<TAttributeSet extends AttributeSet> = {
   readonly /**
    * The attributes defined.
    */
-  [TKey in keyof TAttributeSet]: ReadonlyArray<
-    ShaderPrimitive[TAttributeSet[TKey][`shaderPrimitive`]]
-  > & { readonly length: TAttributeSet[TKey][`quantity`] };
+  [TKey in keyof TAttributeSet]: ShaderPrimitive[TAttributeSet[TKey][`shaderPrimitive`]];
 };
