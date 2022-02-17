@@ -44,6 +44,8 @@ export abstract class VertexBuffer<
     let offset = 0;
     const attributes: { [key in keyof TAttributeSet]?: Attribute } = {};
 
+    const sizes: number[] = [];
+
     for (const key in attributeSet) {
       const attribute = attributeSet[key] as AttributeSetItem;
 
@@ -55,14 +57,22 @@ export abstract class VertexBuffer<
         offset,
       };
 
-      offset +=
-        shaderPrimitiveArities[attribute.shaderPrimitive] *
-        attributePrimitiveBytes[attribute.attributePrimitive];
+      const bytes = attributePrimitiveBytes[attribute.attributePrimitive];
+
+      if (!sizes.includes(bytes)) {
+        sizes.push(bytes);
+      }
+
+      offset += shaderPrimitiveArities[attribute.shaderPrimitive] * bytes;
     }
 
     this._attributes = attributes as {
       readonly [key in keyof TAttributeSet]: Attribute;
     };
+
+    while (sizes.some((size) => offset % size !== 0)) {
+      offset++;
+    }
 
     this._stride = offset;
   }
