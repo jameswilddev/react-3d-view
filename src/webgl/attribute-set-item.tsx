@@ -1,5 +1,4 @@
 import type { AttributePrimitive } from "./attribute-primitive";
-import type { ShaderPrimitive } from "./shader-primitive";
 
 /**
  * Describes an attribute.
@@ -13,5 +12,5 @@ export type AttributeSetItem = {
   /**
    * The primitive type of the attribute within the shader.
    */
-  readonly shaderPrimitive: keyof ShaderPrimitive;
+  readonly shaderPrimitive: `float` | `vec2` | `vec3` | `vec4`;
 };
