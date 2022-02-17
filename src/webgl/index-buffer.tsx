@@ -26,6 +26,7 @@ export abstract class IndexBuffer extends Buffer {
   }
 
   _count = 0;
+  _type: Gl.UnsignedByte | Gl.UnsignedShort = Gl.UnsignedByte;
 
   protected generateData(): BufferSource {
     const indices = this.generateIndices();
@@ -43,8 +44,10 @@ export abstract class IndexBuffer extends Buffer {
     } else if (indices.some((index) => index > 65535)) {
       throw new Error(`Indices cannot be greater than 65535.`);
     } else if (indices.some((index) => index > 255)) {
+      this._type = Gl.UnsignedShort;
       return Uint16Array.from(indices);
     } else {
+      this._type = Gl.UnsignedByte;
       return Uint8Array.from(indices);
     }
   }
