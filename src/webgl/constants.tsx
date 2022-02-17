@@ -86,4 +86,14 @@ export const enum Gl {
    * A 32-bit IEEE float.
    */
   Float = 5126,
+
+  /**
+   * The shader computes vertex positions in normalized device coordinates.
+   */
+  VertexShader = 35633,
+
+  /**
+   * The shader computes fragment colors as unit intervals.
+   */
+  FragmentShader = 35632,
 }
