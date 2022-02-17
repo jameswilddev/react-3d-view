@@ -45,4 +45,10 @@ export abstract class Buffer extends Resource<null | WebGLBuffer> {
    * Implement to define the contents of the buffer.  This may be called multiple times if the context is lost and then recovered.  Cannot be empty.
    */
   protected abstract generateData(): BufferSource;
+
+  _bind(): void {
+    const instance = this.getInstance();
+
+    this.context._gl.bindBuffer(this.target, instance);
+  }
 }
