@@ -44,14 +44,14 @@ export abstract class Resource<TInstance> {
   }
 
   /**
-   * Throws an error if this resource is not of a given context.
-   * @param context The context against which to check this resource.
-   * @throws When this resource is not of the given context.
+   * Throws an error if this resource is not of a given resource's context.
+   * @param resource The resource against which to check this resource.
+   * @throws When this resource is not of the given reource's context.
    */
-  throwIfFromAnotherContext(context: Context): void {
+  throwIfFromAnotherContext(resource: Resource<unknown>): void {
     this.throwIfDisposed();
 
-    if (this.context !== context) {
+    if (this.context !== resource.context) {
       throw new Error(`Unable to interact with resources from other contexts.`);
     }
   }
