@@ -13,7 +13,7 @@ export abstract class Resource<TInstance> {
    * Creates a new WebGL resource.
    * @param context The context under which the resource will be created.
    */
-  constructor(private readonly context: Context) {}
+  constructor(protected readonly context: Context) {}
 
   /**
    * Permanently destroys the WebGL resource, freeing its resources and preventing its further use.
