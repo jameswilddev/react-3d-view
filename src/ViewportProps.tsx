@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Model } from "./Model";
 
 /**
@@ -18,4 +19,9 @@ export type ViewportProps = {
    * The "pitch" about the X/Z axes after applying the azimuth, in radians.  When 0, the camera points directly at the horizon.  When PI/2, the camera points directly down (towards negative Y).
    */
   readonly altitude: number;
+
+  /**
+   * The styling applied to the viewport itself.
+   */
+  readonly style?: undefined | CSSProperties;
 };
