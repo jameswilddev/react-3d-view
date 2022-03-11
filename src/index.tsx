@@ -1,5 +1,5 @@
-export { Color } from "./color";
-export { Location } from "./location";
-export { Model } from "./model";
-export { Polygon } from "./polygon";
-export { Vertex } from "./vertex";
+export { Color } from "./Color";
+export { Location } from "./Location";
+export { Model } from "./Model";
+export { Polygon } from "./Polygon";
+export { Vertex } from "./Vertex";
