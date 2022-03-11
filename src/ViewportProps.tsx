@@ -21,6 +21,13 @@ export type ViewportProps = {
   readonly altitude: number;
 
   /**
+   * Called when the user interacts with the 3D view.
+   * @param azimuth The "yaw" about the Y axis, in radians.  When 0, the camera is at negative Z relative to the model.  When PI/2, the camera is at negative X relative to the model.
+   * @param altitude The "pitch" about the X/Z axes after applying the azimuth, in radians.  When 0, the camera points directly at the horizon.  When PI/2, the camera points directly down (towards negative Y).
+   */
+  onMotion(azimuth: number, altitude: number): void;
+
+  /**
    * The styling applied to the viewport itself.
    */
   readonly style?: undefined | CSSProperties;
