@@ -50,6 +50,6 @@
   "types": "src/index.d.ts",
   "sideEffects": false,
   "dependencies": {
-    "celluloid-engine": "0.0.8"
+    "celluloid-engine": "0.0.9"
   }
 }
