@@ -43,8 +43,8 @@
     "test": "npm-run-all buildClean buildLintFix buildSrcTypeScript buildTestsTypeScript buildJasmine"
   },
   "files": [
-    "src/**/index.js",
-    "src/**/index.d.ts"
+    "src/**/*.js",
+    "src/**/*.d.ts"
   ],
   "main": "src/index.js",
   "types": "src/index.d.ts",
